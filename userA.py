@@ -17,7 +17,7 @@ def videoreciver():
     # Connect to server
     s.connect((ip,recv_port))
     
-    i=0
+    
     while True:
         time.sleep(0.2)
         try:
@@ -26,7 +26,7 @@ def videoreciver():
             imgdata = base64.b64decode(data)
 
             # Create a file and write the image data in that(binary format)
-            filename="{}.jpg".format(i)
+            filename="x.jpg"
             with open(filename, 'wb') as f:
                 f.write(imgdata)
 
@@ -40,8 +40,8 @@ def videoreciver():
             cv2.imshow('B is calling...',image)
 
             # Remove the i.jpg file
-            os.remove("{}.jpg".format(i))
-            i=i+1
+            os.remove("x.jpg")
+            
             if cv2.waitKey(10) == 13:
                 cap.release()
                 break
